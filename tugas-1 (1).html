@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Belajar HTML Desain Web Lanjutan</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <header class="t-animate" data-animate-style="fadein">
+        <h1>Belajar HTML 5</h1>
+    </header>
+    <nav class="t-animate" data-animate-style="fadeinup">
+        <a href="#goto-canvas">Canvas</a>
+        <a href="#goto-video">Video</a>
+        <a href="#goto-audio">Audio</a>
+    </nav>
+    <main>
+        <section id="goto-kanvas" class="t-animate" data-animate-style="fadein">
+            <h1>Ini Contoh Penerapan Canvas</h1>
+            <canvas id="iniKanvas" height="200" width="300" style="background: grey;">
+                <!-- Teks ini muncul apabila browser tidak mendukung HTML5 canvas -->
+            </canvas>
+            <script>
+                let kanvas = document.getElementById("iniKanvas");
+                let konteks = kanvas.getContext("2d");
+                konteks.fillStyle = "rgb(255,0,0)";
+                konteks.fillRect(10, 50, 150, 50);
+                konteks.fillStyle = "rgb(255,255,255)";
+                konteks.fillRect(10, 100, 150, 50);
+            </script>
+            <details>
+                <summary>Keterangan:</summary>
+                <div class="content">
+                    Blok kotak abu (diberi style CSS) adalah area kanvas yang merupakan HTML5 element
+                    <code>canvas</code>, sedangkan kotak merah-putih dibuat dengan script (javascript) yang berkaitan
+                    dengan HTML5 canvas (Canvas API).
+                </div>
+            </details>
+        </section>
+        <section id="goto-video" class="t-animate" data-animate-style="fadeinup">
+            <h1>Ini Contoh Penerapan Element Video</h1>
+            <video width="320" height="240" controls>
+                <source src="filevideo.mp4" type="video/mp4">
+                Browser Anda tidak mendukung HTML video tag.
+            </video>
+            <details>
+                <summary>Keterangan:</summary>
+                Video yang digunakan berekstensi mp4 dan disimpan di folder yang sama dengan index.html
+            </details>
+        </section>
+        <section id="goto-audio">
+            <h1>Ini Contoh Penerapan Element Audio</h1>
+            <audio controls preload="none">
+                <source src="No1PartyAnthem.mp3" type="audio/mpeg">
+            </audio>
+            <details>
+                <summary>Keterangan:</summary>
+                Audio yang digunakan berekstensi mp3 dan disimpan di folder yang sama dengan index.html
+            </details>
+        </section>
+    </main>
+    <footer class="t-animate" data-animate-style="fadeinup" style="margin-top: 50px;">
+        Copyright &copy; 2022 by Stmik Royal
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const elements = document.querySelectorAll('header, nav, main, footer');
+            elements.forEach((el) => {
+                el.classList.add('t-animate-start');
+            });
+        });
+    </script>
+</body>
+
+</html>
