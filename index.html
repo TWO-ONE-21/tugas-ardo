@@ -18,6 +18,9 @@
         <a href="#goto-video">Video</a>
         <a href="#goto-audio">Audio</a>
     </nav>
+    <button id="themeToggle" class="theme-toggle-btn">
+        <img src="icon.png" alt="Switch Theme" style="width: 24px; height: 24px;">
+    </button>
     <main>
         <section id="goto-kanvas" class="t-animate" data-animate-style="fadein">
             <h1>Ini Contoh Penerapan Canvas</h1>
@@ -28,9 +31,9 @@
                 let kanvas = document.getElementById("iniKanvas");
                 let konteks = kanvas.getContext("2d");
                 konteks.fillStyle = "rgb(255,0,0)";
-                konteks.fillRect(10, 50, 150, 50);
+                konteks.fillRect(75, 50, 150, 50);
                 konteks.fillStyle = "rgb(255,255,255)";
-                konteks.fillRect(10, 100, 150, 50);
+                konteks.fillRect(75, 100, 150, 50);
             </script>
             <details>
                 <summary>Keterangan:</summary>
@@ -44,7 +47,7 @@
         <section id="goto-video" class="t-animate" data-animate-style="fadeinup">
             <h1>Ini Contoh Penerapan Element Video</h1>
             <video width="320" height="240" controls>
-                <source src="interstellar.mp4" type="video/mp4">
+                <source src="filevideo.mp4" type="video/mp4">
                 Browser Anda tidak mendukung HTML video tag.
             </video>
             <details>
@@ -71,6 +74,22 @@
             const elements = document.querySelectorAll('header, nav, main, footer');
             elements.forEach((el) => {
                 el.classList.add('t-animate-start');
+            });
+        });
+
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        document.getElementById('themeToggle').addEventListener('click', function () {
+            document.body.classList.toggle('light-theme');
+            document.querySelectorAll('header, footer, nav, details, section, h1').forEach(element => {
+                element.classList.toggle('light-theme');
             });
         });
     </script>
